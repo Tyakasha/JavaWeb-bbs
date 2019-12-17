@@ -27,9 +27,17 @@
 </head>
 
 <%--页面渲染时，设置并接收后端传来的数据--%>
+<%--用户信息及账号信息数据传输对象--%>
 <c:set var="userAccInfoDTO" scope="session" value="${userAccInfoDTO}"/>
+<%--所有的帖子数据传输对象--%>
 <c:set var="allPostsDTO" scope="request" value="${allPostsDTO}" />
-<%--<c:set var="allPostsDTO" scope="request" value="${allPostsDTO}"/>--%>
+<%--
+    置顶帖数据传输对象
+    这里理论是可以用所有帖子数据来渲染置顶帖的
+    但当数据量很大时，那样会影响页面渲染或加载速度（因为有判断）
+    所有在后端进行该项数据的获取传过来直接渲染
+    --%>
+<c:set var="topPostsDTO" scope="request" value="${topPostsDTO}"/>
 
 <body>
 <div style="display: block;width: 100%;min-height: 1800px;max-height: 5000px;height: 1800px">
@@ -322,7 +330,7 @@
                             <div class="note-opt">
                                 <!--该隐藏的输入框用于存放帖子的id-->
                                 <input value="${post.postId}" hidden>
-                                <!--点赞按钮，这里为了简单，用户以及游客均可为帖子点赞-->
+                                <!--点赞按钮，只有注册的用户才可以为帖子点赞-->
                                 <button type="button" class="btn btn-light"  name="thumb" style="width: 36px;height:36px;font-size: 14px;font-weight:bolder;border: 0;text-align: center;
                         border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%; color: #009a61">赞</button>
                                 ●&nbsp;<span style="color: #009a61;font-weight: bolder;font-size: 14px">${post.thumbNum}</span>
@@ -341,17 +349,29 @@
                 <a href="https://www.bt.cn"><img src="static/images/bt.png"  style="width: 100%;height: 136px"></a>
             </div>
             <div style="width: 100%;height: 20px;font-size: 12px;text-align: center">图片广告位，现在折价中哦......</div>
-            <div style="width: 100%;height: 30px;font-size: 17px;color: #009a61;font-weight: bolder;margin-top: 50px">----------置顶帖----------</div>
+            <div style="width: 100%;height: 30px;font-size: 17px;color: #009a61;font-weight: bolder;margin-top: 50px;text-align: center">----------置顶帖----------</div>
             <!--被置顶的帖-->
-            <div class="boutique-recommend">ttttt</div>
-            <div class="boutique-recommend">ttttt</div>
-            <div class="boutique-recommend">ttttt</div>
-            <div class="boutique-recommend">ttttt</div>
-            <div class="boutique-recommend">ttttt</div>
+            <c:if test="${topPostsDTO!=null}">
+                <c:forEach items="${topPostsDTO}" var="topPost">
+                    <div class="boutique-recommend">
+                        <div style="width: 100%;height: 32px;display: block">
+                            <span style="font-size: 17px;font-weight: bold">${topPost.title}</span>
+                        </div>
+                        <div style="width: 100%;height: 1.5px;background: #999999"></div>
+                        <div class="top-post-content">
+                            ${topPost.content}
+                        </div>
+                    </div>
+                </c:forEach>
+            </c:if>
+            <c:if test="${topPostsDTO==null}">
+                <div style="width: 100%;text-align: center;margin-top: 5%">暂无置顶帖哦</div>
+            </c:if>
         </div>
     </div>
     <footer class="footer-content">
-        <label style="font-size: 14px;line-height: 100px;color: #999999">CopyRight   @南昌大学信息工程学院-Wan HaoDong</label>
+        <label style="font-size: 14px;line-height: 120px;color: #999999">CopyRight   @南昌大学信息工程学院-Wan HaoDong
+            &nbsp;&nbsp;&nbsp;&nbsp;2017级信息学院WEB程序设计期末作业项目</label>
     </footer>
 </div>
 </body>
