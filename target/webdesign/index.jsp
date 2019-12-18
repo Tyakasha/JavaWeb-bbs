@@ -5,18 +5,27 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>网页论坛系统</title>
-    <%--引入bootstrap样式库--%>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <%--引入bootstrap的js库（包括jquery和其他第三方js库）--%>
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>NCU论坛系统</title>
+    <%--导入jquery--%>
+    <script src="static/js/jquery.min.js"></script>
+    <%--导入Popper.js，这是bootstrap需要的js库--%>
+    <script type="text/javascript" src="static/umd/popper.min.js"></script>
     <%--jquerysession.js--%>
     <script src="static/js/jquerysession.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"
+    <%--bootstrap的js库--%>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <%--bootstrap的样式库--%>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <%--cdn导入--%>
+    <%--导入bootstrap的js文件--%>
+    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"
             integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9+4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>--%>
+    <%--引入bootstrap样式库--%>
+    <%--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--%>
     <%--使用第三方Alert的提示框样式--%>
     <link rel="stylesheet" type="text/css" href="static/css/toastr.css">
     <script type="text/javascript" src="static/js/toastr.min.js"></script>
@@ -49,7 +58,7 @@
             </div>
             <div class="opts" >
                 <div class="link-home">
-                    <a href="javascript:location.reload()" class="text-decoration-none" style="height: 100%;line-height: 34px;color: #009a61;font-weight: bolder">首页</a>
+                    <a href="bbs" class="text-decoration-none" style="height: 100%;line-height: 34px;color: #009a61;font-weight: bolder">首页</a>
                 </div>
                 <c:if test="${userAccInfoDTO!=null}">
                     <div class="link-create"  id="createNote">
@@ -60,17 +69,17 @@
                             创建
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-create">
-                            <a class="dropdown-item" href="#">普通帖</a>
-                            <a class="dropdown-item" href="#">问答帖</a>
+                            <a class="dropdown-item" href="bbs/postPage?type=0">普通帖</a>
+                            <a class="dropdown-item" href="bbs/postPage?type=1">问答帖</a>
                         </div>
                     </div>
                     <!--管理员才有这两个功能-->
                     <c:if test="${userAccInfoDTO.accType==1}">
                         <div class="link" id="userManage">
-                            <a href="#" class="text-decoration-none" style="height: 100%;line-height: 34px;color: #009a61;">用户管理</a>
+                            <a href="bbs/userManage" class="text-decoration-none" style="height: 100%;line-height: 34px;color: #009a61;">用户管理</a>
                         </div>
                         <div class="link" id="notesManage">
-                            <a href="#" class="text-decoration-none" style="height: 100%;line-height: 34px;color: #009a61;">帖子管理</a>
+                            <a href="bbs/postsManage" class="text-decoration-none" style="height: 100%;line-height: 34px;color: #009a61;">帖子管理</a>
                         </div>
                     </c:if>
                 </c:if>
@@ -82,7 +91,7 @@
                             <a><img src="static/images/login_logo.png" class="avatar-img"/></a>
                         </div>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-user" >
-                            <a class="dropdown-item" href="#">账户信息</a>
+                            <a class="dropdown-item" href="bbs/userInfoPage?userName=${userAccInfoDTO.userName}">账户信息</a>
                             <a class="dropdown-item"  id="signOut">退出登录</a>
                         </div>
                         <label style="margin-left: 25px">欢迎您，${userAccInfoDTO.userName}</label>

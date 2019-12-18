@@ -15,7 +15,7 @@ import java.io.IOException;
  * @date 2019-12-12  16:21
  * @description 对需要管理员身份登录才可以操作的请求进行拦截检查
  **/
-@WebFilter(urlPatterns = "/bbs/admin/*")
+@WebFilter(urlPatterns ={"/userManage","/postsManage"})
 public class AdminSignInStateFilter implements Filter {
 
     private final static Integer USER_KEY=0;

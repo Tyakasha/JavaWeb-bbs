@@ -238,10 +238,10 @@ $(function () {
    * 由于现在后端接口还没写
    * 因此这部分要到后端接口写好之后再用
    * */
-    /*if($.session.get("loadState")==="false"){
+    if($.session.get("loadState")==="false"){
         $.session.set("loadState",true);
         window.location.href="bbs";
-    }*/
+    }
 
 
 
@@ -738,7 +738,7 @@ $("button[name='left-side-btn']").click(function () {
         $("#page-select").prop("hidden",true);
         $.ajax({
             method:"post",
-            url:"bbs/notes/getByTag",
+            url:"bbs/posts/getByTag",
             data:{
                 tagName:tagName
             },
@@ -771,11 +771,13 @@ $("#all-notes").click(function () {
     /*
     * 因为首页直接加载了所有帖子，所以这里直接刷新
     * */
-    window.location.reload();
+    /*window.location.reload();*/
+    var type=1;
+    window.location.href="bbs/postPage?type="+type;
 });
 
 /*
-* 我发布的
+* 全部置顶帖
 * */
 $("#my-post").click(function () {
     let cardBody=$("#card-body");
@@ -788,7 +790,7 @@ $("#my-post").click(function () {
     var data=[];
     $.ajax({
         method:"post",
-        url:"bbs/notes/myPost",
+        url:"bbs/posts/allTopPosts",
         data:{},
         dataType:"json",
         success:function (callback) {
@@ -807,7 +809,7 @@ $("#my-post").click(function () {
 });
 
 /*
-* 精品贴
+* 全部精品贴
 * */
 $("#boutique-notes").click(function () {
     let cardBody=$("#card-body");
@@ -816,7 +818,7 @@ $("#boutique-notes").click(function () {
     var data=[];
     $.ajax({
         method:"post",
-        url:"bbs/notes/boutiqueNotes",
+        url:"bbs/posts/boutiquePosts",
         data:{},
         dataType:"json",
         success:function (callback) {
