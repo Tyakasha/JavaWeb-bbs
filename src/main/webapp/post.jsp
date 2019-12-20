@@ -122,9 +122,9 @@
         <textarea id="editor" rows="20" cols="80"></textarea>
     </div>
     <div id="test" style="font-size: 14px"></div>
+
 </div>
 <script>
-
     $(function () {
         /*隐藏加载条*/
         $("#loading-sp").hide();
@@ -141,9 +141,12 @@
     * 返回首页
     * */
     $("#returnHome").click(function () {
-        var url=window.location.pathname;
-        var end = url.lastIndexOf("/");
-        url = url.substring(0,end);
+        let url=window.location.pathname;
+        /*截取两次*/
+        const firstEnd = url.lastIndexOf("/");
+        url = url.substring(0,firstEnd);
+        const secondEnd=url.lastIndexOf("/");
+        url=url.substring(0,secondEnd);
         window.location.href=url;
     });
 

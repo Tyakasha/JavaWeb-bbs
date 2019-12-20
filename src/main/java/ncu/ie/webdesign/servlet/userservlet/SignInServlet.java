@@ -43,6 +43,8 @@ public class SignInServlet extends HttpServlet {
             userAccInfoDTO=userService.getUserAccInfoDTOByLoginAcc(loginAcc);
             HttpSession session = req.getSession();
             session.setAttribute("userAccInfoDTO", userAccInfoDTO);
+            String userName=userAccInfoDTO.getUserName();
+            session.setAttribute("userName", userName);
             ajaxCallBack.setSuccessFlag(true);
         }else{
             ajaxCallBack.setSuccessFlag(false);

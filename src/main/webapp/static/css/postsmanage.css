@@ -114,6 +114,10 @@ body{
     display: inline-block;
     height: 100%;
     width: 68%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-word;
 }
 .opts-content{
     display: inline-block;
@@ -149,7 +153,6 @@ body{
     margin-top: 12px;
     font-size: 14px;
     color: #999999;
-    overflow: hidden;
 }
 .title-span{
     margin-left: 20px;

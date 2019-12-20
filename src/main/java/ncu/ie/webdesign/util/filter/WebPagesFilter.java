@@ -15,7 +15,7 @@ import java.io.IOException;
  * @date 2019-12-12  14:28
  * @description 页面直接访问拦截器，对所有直接使用get请求方式访问页面的都拒绝，不允许用url直接访问页面
  **/
-@WebFilter(urlPatterns = {"/userinfo.jsp","/index.jsp","/usermanage.jsp","/post.jsp"})
+@WebFilter(urlPatterns = {"/usermanage.jsp","/post.jsp"})
 public class WebPagesFilter implements Filter {
 
 
@@ -28,7 +28,7 @@ public class WebPagesFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response= (HttpServletResponse) servletResponse;
-        response.sendRedirect(request.getContextPath()+"/bbs");
+        response.sendRedirect(request.getContextPath());
     }
 
     @Override

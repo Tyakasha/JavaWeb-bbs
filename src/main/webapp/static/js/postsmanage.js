@@ -6,7 +6,7 @@
 $("button[name='seeDetail']").click(function () {
     const postId=$(this).prev().val();
     /*页面跳转*/
-    window.location.href="bbs/postDetail?postId="+postId;
+    window.location.href="postDetail?postId="+postId;
 });
 /*
 * 删除帖
@@ -35,7 +35,7 @@ $("button[name='deletePost']").click(function () {
             * */
             $.ajax({
                 method:"post",
-                url:"bbs/admin/deletePost",
+                url:"admin/deletePost",
                 data:{
                     postId:postId
                 },
@@ -49,7 +49,7 @@ $("button[name='deletePost']").click(function () {
                         * */
                         thisBtn.parent().parent().parent().hide();
                     }else{
-                        swal("删除失败","T-T好像出bug了呢...","","error");
+                        swal("删除失败","T-T好像出bug了呢...","error");
                     }
                 },
                 error:function () {
@@ -65,8 +65,11 @@ $("button[name='deletePost']").click(function () {
 * 因为url加了一级父级路径bbs
 * */
 $("#returnHome").click(function () {
-    var url=window.location.pathname;
-    var end = url.lastIndexOf("/");
-    url = url.substring(0,end);
+    let url=window.location.pathname;
+    /*截取两次*/
+    const firstEnd = url.lastIndexOf("/");
+    url = url.substring(0,firstEnd);
+    const secondEnd=url.lastIndexOf("/");
+    url=url.substring(0,secondEnd);
     window.location.href=url;
 });

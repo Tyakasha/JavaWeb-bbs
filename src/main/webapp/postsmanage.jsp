@@ -94,7 +94,7 @@
                         </div>
                         <div class="opts-content">
                                 <%--用来绑定帖子id--%>
-                            <input value="aoligei" hidden>
+                            <input value="${postsInfo.postsId}" hidden>
                             <button type="button" class="btn btn-primary" name="seeDetail" style="display: inline-block;width: 70%;margin-left: 15%;margin-top: 15px">查看详细</button>
                             <button type="button" class="btn btn-danger" name="deletePost" style="display: inline-block;width: 70%;margin-left: 15%;margin-top: 15px">删除该帖</button>
                         </div>

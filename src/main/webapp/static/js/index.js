@@ -4,222 +4,13 @@
 * */
 
 /*定义全局的数据数组，用于存放帖子数据，用于分组*/
-/*
-* 这里是分页内容的测试数据
-* */
-var notesData=[
-    [
-        {
-            title:"Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"Docker静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"SFSD静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"SDGDH静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"GHHH4静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"HHHERS静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3DGS静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"YASDF静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"SAGHHR静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"JE4DS静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-    ],
-    [
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"2Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-    ],
-    [
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"3Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-    ],
-    [
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"4Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-    ],
-    [
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-        {
-            title:"5Nignx静态资源配置",
-            content:"网飞的数据科学家们能网飞，的数据科学家们能网飞的数据科学家们能网飞的数据科学家们能，网飞的数据科学家们能网飞的数，据科学家们能"
-        },
-    ],
-];
-
+/*首页全部数据*/
+let indexPageData=[];
+let thumbCounter=1;
+/*所有帖子的数据*/
+let allPostsData=[];
+/*置顶帖数据*/
+let topPostsData=[];
 $(function () {
 
     /*
@@ -232,17 +23,6 @@ $(function () {
         sessionStorage.setItem("loginState",false);
         sessionStorage.setItem("loadState",false);
     }
-
-    /*
-   * 发送get请求到后端获取数据
-   * 由于现在后端接口还没写
-   * 因此这部分要到后端接口写好之后再用
-   * */
-    if($.session.get("loadState")==="false"){
-        $.session.set("loadState",true);
-        window.location.href="bbs";
-    }
-
 
 
     /*初始化alert提示框的显示效果*/
@@ -275,26 +55,71 @@ $(function () {
     * 对于name属性不能绑定，即后续再使用jquery操作dom时（按照name定位button）
     * 会出现函数无法生效的情况，所以还是用jsp来渲染首页的数据
     * */
-    /*var page1=notesData[0];*/
-   /* for (let i = 0; i <page1.length ; i++) {
-        $("#card-body").append("<div class=\"note-card\">\n" +
-            "                    <div class=\"note-tile\"><h4 style=\"color: #212121\">"+page1[i].title+"</h4></div>\n" +
-            "                    <div class=\"note-content\">\n" +page1[i].content+
-            "                    </div>\n" +
-            "                    <div class=\"note-opt\">\n" +
-            "                        <!--该隐藏的输入框用于存放帖子的id-->\n" +
-            "                        <input value=\"note-id\" hidden>\n" +
-            "                        <!--点赞按钮，这里为了简单，用户以及游客均可为帖子点赞-->\n" +
-            "                        <button type=\"button\" class=\"btn btn-light\"  name=\"thumb\" style=\"width: 36px;height:36px;font-size: 14px;font-weight:bolder;border: 0;text-align: center;\n" +
-            "                          border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%; color: #009a61\">赞</button>\n" +
-            "                        <span style=\"color: #009a61;font-weight: bolder;font-size: 14px\"> x 2</span>\n" +
-            "                        <!--此处显示发帖用户的用户名-->\n" +
-            "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 20%;font-size: 14px;color:#999999;border: 0;text-align: center;background: #FFFFFF;margin-left: 10px\">极客Style</button>\n" +
-            "                        <!--此处显示发帖时间-->\n" +
-            "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 30%;font-size: 14px;color:#999999;border: 0;text-align: left;background: #FFFFFF;margin-left: 10px\">2019-12-23 18:19</button>\n" +
-            "                    </div>\n" +
-            "                </div>");
-    }*/
+    /*显示加载条*/
+    $("#loading-data").show();
+    $.ajax({
+        method:"post",
+        url:"bbs/load",
+        data:{},
+        dataType:"json",
+        success:function (callback) {
+            let cardBody=$("#card-body");
+            let rightSide=$("#right-side");
+            indexPageData=callback.callbackData;
+            if (indexPageData!==undefined ){
+                allPostsData=indexPageData.allPostsData;
+                topPostsData=indexPageData.topPostsData;
+                if (allPostsData!==null){
+                    cardBody.empty();
+                    for (let i=0;i<allPostsData.length;i++) {
+                        cardBody.append("<div class=\"note-card\">\n" +
+                            "                    <div class=\"note-title\"><input value="+allPostsData[i].postsId+" hidden>" +
+                            "<h4 style=\"color: #212121\">"+allPostsData[i].title+"</h4></div>\n" +
+                            "                    <div class=\"note-content\">\n" +allPostsData[i].content+
+                            "                    </div>\n" +
+                            "                    <div class=\"note-opt\">\n" +
+                            "                        <!--该隐藏的输入框用于存放帖子的id-->\n" +
+                            "                        <!--点赞按钮，这里为了简单，用户以及游客均可为帖子点赞-->\n" +
+                            "                        <button type=\"button\" class=\"btn btn-light\"  name=\"thumb\" style=\"width: 36px;height:36px;font-size: 14px;font-weight:bolder;border: 0;text-align: center;\n" +
+                            "                          border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%; color: #009a61\">赞</button>\n" +
+                            "                        <span style=\"color: #009a61;font-weight: bolder;font-size: 14px\"> x "+allPostsData[i].thumbNum+"</span>\n" +
+                            "                        <!--此处显示发帖用户的用户名-->" +
+                            "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 20%;font-size: 14px;color:#999999;border: 0;text-align: center;background: #FFFFFF;margin-left: 10px\">"+
+                            "                       <a class='text-decoration-none' href='bbs/userInfoPage?userName="+allPostsData[i].postUser+"'>"+allPostsData[i].postUser+"</a>"+"</button>"+
+                            "                        <!--此处显示发帖时间-->\n" +
+                            "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 30%;font-size: 14px;color:#999999;border: 0;text-align: left;background: #FFFFFF;margin-left: 10px\">"+allPostsData[i].postDate+"</button>\n" +
+                            "                    </div>\n" +
+                            "                </div>");
+                    }
+                    /*渲染完成后关闭*/
+                    $("#loading-data").hide();
+                }else {
+                    $("#loading-data").hide();
+                    cardBody.append("<div  style='text-align: center;width: 100%;margin-top: 50px'>论坛还没有任何用户发表帖子呢，快去抢沙发吧！</div>");
+                }
+                if (topPostsData!==null){
+                    for (let i = 0; i <topPostsData.length ; i++) {
+                        rightSide.append("<div class='boutique-recommend'>" +
+                            "                <div style='width: 100%;height: 32px;display: block'>" +
+                            "       <input value='"+topPostsData[i].postsId+"' hidden><span style='font-size: 17px;font-weight: bold' class='top-post-title'>"+topPostsData[i].title+"</span>" +
+                            "                </div>" +
+                            "                <div style='width: 100%;height: 1.5px;background: #999999'></div>\n" +
+                            "                <div class='top-post-content'>"+topPostsData[i].content+"</div>" +
+                            "            </div>");
+                    }
+                }else {
+                    $("#loading-data").hide();
+                    rightSide.append("<div style='width: 100%;text-align: center;margin-top: 5%'>暂无置顶帖哦</div>");
+                }
+
+            }
+        },
+        error:function () {
+            $("#loading-data").hide();
+            toastr.error("服务异常，数据加载失败");
+        }
+    });
+
 });
 
 /*
@@ -582,7 +407,7 @@ $("#previous").click(function () {
                let pageNum=$(this).prev().children().text();
                let cardBody=$("#card-body");
                cardBody.empty();
-               var pageData=notesData[parseInt(pageNum)-1];
+               var pageData=indexPageData[parseInt(pageNum)-1];
                for (let i = 0; i <pageData.length ; i++) {
                    cardBody.append("<div class=\"note-card\">\n" +
                        "                    <div class=\"note-tile\"><h4 style=\"color: #212121\">"+pageData[i].title+"</h4></div>\n" +
@@ -625,7 +450,7 @@ $("#next").click(function () {
                 let pageNum=$(this).next().children().text();
                 let cardBody=$("#card-body");
                 cardBody.empty();
-                var pageData=notesData[parseInt(pageNum)-1];
+                var pageData=indexPageData[parseInt(pageNum)-1];
                 for (let i = 0; i <pageData.length ; i++) {
                     cardBody.append("<div class=\"note-card\">\n" +
                         "                    <div class=\"note-tile\"><h4 style=\"color: #212121\">"+pageData[i].title+"</h4></div>\n" +
@@ -679,7 +504,7 @@ $(".page-link").click(function () {
             * */
             let cardBody=$("#card-body");
             cardBody.empty();
-            var pageData=notesData[parseInt($(this).text())-1];
+            var pageData=indexPageData[parseInt($(this).text())-1];
             for (let i = 0; i <pageData.length ; i++) {
                 cardBody.append("<div class=\"note-card\">\n" +
                     "                    <div class=\"note-tile\"><h4 style=\"color: #212121\">"+pageData[i].title+"</h4></div>\n" +
@@ -728,11 +553,12 @@ $("button[name='left-side-btn']").click(function () {
     * 可以根据这个进行判断
     * */
     if ($(this).children().length>0){
+        $("#loading-data").show();
         let tagName=$(this).val();
-        var data=[];
-       /*
-       * 先清空再渲染
-       * */
+        let data = [];
+        /*
+        * 先清空再渲染
+        * */
         let cardBody=$("#card-body");
         cardBody.empty();
         $("#page-select").prop("hidden",true);
@@ -750,17 +576,42 @@ $("button[name='left-side-btn']").click(function () {
                 * 只显示该专题目前没有用户发表帖子
                 * */
                 data=callback.callbackData;
-                if (data.length===0){
+                if (data.length===0||data===null){
+                    $("#loading-data").hide();
                     cardBody.append("<div style='text-align: center;width: 100%;margin-top: 50px'>该专题暂无用户发表帖子，快去抢沙发吧！</div>");
                 }else{
                     /*渲染内容*/
+                    cardBody.empty();
+                    for (let i = 0; i <data.length ; i++) {
+                        $("#card-body").append("<div class=\"note-card\">\n" +
+                            "                    <div class=\"note-title\"><input value="+data[i].postsId+" hidden>" +
+                            "<h4 style=\"color: #212121\">"+data[i].title+"</h4></div>\n" +
+                            "                    <div class=\"note-content\">\n" +data[i].content+
+                            "                    </div>\n" +
+                            "                    <div class=\"note-opt\">\n" +
+                            "                        <!--该隐藏的输入框用于存放帖子的id-->\n" +
+                            "                        <!--点赞按钮，这里为了简单，用户以及游客均可为帖子点赞-->\n" +
+                            "                        <button type=\"button\" class=\"btn btn-light\"  name=\"thumb\" style=\"width: 36px;height:36px;font-size: 14px;font-weight:bolder;border: 0;text-align: center;\n" +
+                            "                          border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%; color: #009a61\">赞</button>\n" +
+                            "                        <span style=\"color: #009a61;font-weight: bolder;font-size: 14px\"> x "+data[i].thumbNum+"</span>\n" +
+                            "                        <!--此处显示发帖用户的用户名-->" +
+                            "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 20%;font-size: 14px;color:#999999;border: 0;text-align: center;background: #FFFFFF;margin-left: 10px\">"+
+                            "                       <a class='text-decoration-none' href='bbs/userInfoPage?userName="+data[i].postUser+"'>"+data[i].postUser+"</a>"+"</button>"+
+                            "                        <!--此处显示发帖时间-->\n" +
+                            "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 30%;font-size: 14px;color:#999999;border: 0;text-align: left;background: #FFFFFF;margin-left: 10px\">"+data[i].postDate+"</button>" +
+                            "                    </div>\n" +
+                            "                </div>");
+                    }
+                    $("#loading-data").hide();
                 }
             },
             error:function () {
+                $("#loading-data").hide();
                 toastr.error("服务异常，数据获取失败T-T.....");
                 cardBody.append("<div style='width: 60%;height:180px;margin-left: 20%;margin-top: 50px;'><img src='static/images/no-data.jpg' style='width: 80%;height: 100%;background: #FFFFFF'></div>");
             }
         });
+
     }
 });
 
@@ -771,13 +622,11 @@ $("#all-notes").click(function () {
     /*
     * 因为首页直接加载了所有帖子，所以这里直接刷新
     * */
-    /*window.location.reload();*/
-    var type=1;
-    window.location.href="bbs/postPage?type="+type;
+    window.location.reload();
 });
 
 /*
-* 全部置顶帖
+* 全部问答帖
 * */
 $("#my-post").click(function () {
     let cardBody=$("#card-body");
@@ -790,15 +639,36 @@ $("#my-post").click(function () {
     var data=[];
     $.ajax({
         method:"post",
-        url:"bbs/posts/allTopPosts",
+        url:"bbs/posts/allQuestionPosts",
         data:{},
         dataType:"json",
         success:function (callback) {
-            data=callback.callback.callbackData;
+            data=callback.callbackData;
             if (data.length===0){
-                cardBody.append("<div style='text-align: center;width: 100%;margin-top: 50px'>您目前还没发过任何帖子，快去发一条吧~</div>");
+                cardBody.append("<div style='text-align: center;width: 100%;margin-top: 50px'>您目前还没发过任何问答帖子，快去发一条吧~</div>");
             }else{
                 /*渲染内容*/
+                cardBody.empty();
+                for (let i = 0; i <data.length ; i++) {
+                    $("#card-body").append("<div class=\"note-card\">\n" +
+                        "                    <div class=\"note-title\"><input value="+data[i].postsId+" hidden>" +
+                        "<h4 style=\"color: #212121\">"+data[i].title+"</h4></div>\n" +
+                        "                    <div class=\"note-content\">\n" +data[i].content+
+                        "                    </div>\n" +
+                        "                    <div class=\"note-opt\">\n" +
+                        "                        <!--该隐藏的输入框用于存放帖子的id-->\n" +
+                        "                        <!--点赞按钮，这里为了简单，用户以及游客均可为帖子点赞-->\n" +
+                        "                        <button type=\"button\" class=\"btn btn-light\"  name=\"thumb\" style=\"width: 36px;height:36px;font-size: 14px;font-weight:bolder;border: 0;text-align: center;\n" +
+                        "                          border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%; color: #009a61\">赞</button>\n" +
+                        "                        <span style=\"color: #009a61;font-weight: bolder;font-size: 14px\"> x "+data[i].thumbNum+"</span>\n" +
+                        "                        <!--此处显示发帖用户的用户名-->" +
+                        "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 20%;font-size: 14px;color:#999999;border: 0;text-align: center;background: #FFFFFF;margin-left: 10px\">"+
+                        "                       <a class='text-decoration-none' href='userInfoPage?userName="+data[i].postUser+"'>"+data[i].postUser+"</a>"+"</button>"+
+                        "                        <!--此处显示发帖时间-->\n" +
+                        "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 30%;font-size: 14px;color:#999999;border: 0;text-align: left;background: #FFFFFF;margin-left: 10px\">"+data[i].postDate+"</button>" +
+                        "                    </div>\n" +
+                        "                </div>");
+                }
             }
         },
         error:function () {
@@ -815,18 +685,39 @@ $("#boutique-notes").click(function () {
     let cardBody=$("#card-body");
     cardBody.empty();
     $("#page-select").prop("hidden",true);
-    var data=[];
+    let data = [];
     $.ajax({
         method:"post",
         url:"bbs/posts/boutiquePosts",
         data:{},
         dataType:"json",
         success:function (callback) {
-            data=callback.callback.callbackData;
+            data=callback.callbackData;
             if (data.length===0){
                 cardBody.append("<div style='text-align: center;width: 100%;margin-top: 50px'>目前还没有任何精品帖子哦，去找找别的看吧~</div>");
             }else{
                /*渲染内容*/
+                cardBody.empty();
+                for (let i = 0; i <data.length ; i++) {
+                    $("#card-body").append("<div class=\"note-card\">\n" +
+                        "                    <div class=\"note-title\"><input value="+data[i].postsId+" hidden>" +
+                        "<h4 style=\"color: #212121\">"+data[i].title+"</h4></div>\n" +
+                        "                    <div class=\"note-content\">\n" +data[i].content+
+                        "                    </div>\n" +
+                        "                    <div class=\"note-opt\">\n" +
+                        "                        <!--该隐藏的输入框用于存放帖子的id-->\n" +
+                        "                        <!--点赞按钮，这里为了简单，用户以及游客均可为帖子点赞-->\n" +
+                        "                        <button type=\"button\" class=\"btn btn-light\"  name=\"thumb\" style=\"width: 36px;height:36px;font-size: 14px;font-weight:bolder;border: 0;text-align: center;\n" +
+                        "                          border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%; color: #009a61\">赞</button>\n" +
+                        "                        <span style=\"color: #009a61;font-weight: bolder;font-size: 14px\"> x "+data[i].thumbNum+"</span>\n" +
+                        "                        <!--此处显示发帖用户的用户名-->" +
+                        "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 20%;font-size: 14px;color:#999999;border: 0;text-align: center;background: #FFFFFF;margin-left: 10px\">"+
+                        "                       <a class='text-decoration-none' href='userInfoPage?userName="+data[i].postUser+"'>"+data[i].postUser+"</a>"+"</button>"+
+                        "                        <!--此处显示发帖时间-->\n" +
+                        "                        <button type=\"button\" class=\"btn btn-light\"  style=\"width: 30%;font-size: 14px;color:#999999;border: 0;text-align: left;background: #FFFFFF;margin-left: 10px\">"+data[i].postDate+"</button>" +
+                        "                    </div>\n" +
+                        "                </div>");
+                }
             }
         },
         error:function () {
@@ -836,12 +727,83 @@ $("#boutique-notes").click(function () {
     });
 });
 
+/*点赞*/
 $("button[name='thumb']").click(function () {
+    const thumbNum=parseInt($(this).prev().val());
     if ($.session.get("loginState")==="true"){
-        swal("赞","您已成功点赞该帖子哦","success");
+        const postId=$(this).prev().prev().val();
+        if (thumbCounter%2!==0){
+            /*为帖子添加该用户的点赞记录*/
+            $.ajax({
+                method:"post",
+                url:"bbs/user/thumb",
+                data:{
+                    postId:postId
+                },
+                dataType:"json",
+                success:function (callback) {
+                    if (callback.successFlag){
+                        toastr.success("点赞成功");
+                        $(this).prev().val(thumbNum+1);
+                        $(this).next().text(thumbNum+1);
+                        thumbCounter++;
+                    }else{
+                        toastr.error("点赞失败，服务异常....");
+                    }
+                },
+                error:function () {
+                    toastr.error("点赞失败，服务异常....");
+                }
+            });
+        }else {
+            /*
+            * 用户不能重复点赞
+            * 因此点赞后再点击那么将取消之前的点赞
+            * 那么将帖子该用户的点赞记录删除
+            * */
+            $.ajax({
+                method:"post",
+                url:"bbs/user/cancelThumb",
+                data:{
+                    postId:postId
+                },
+                dataType:"json",
+                success:function (callback) {
+                    if (callback.successFlag){
+                        toastr.info("已取消点赞");
+                        $(this).prev().val(thumbNum+1);
+                        $(this).next().text(thumbNum+1);
+                        thumbCounter++;
+                    }else{
+                        toastr.error("取消点赞失败，服务异常....");
+                    }
+                },
+                error:function () {
+                    toastr.error("取消点赞失败，服务异常....");
+                }
+            });
+            $(this).prev().val(thumbNum-1);
+            $(this).next().text(thumbNum-1);
+        }
     }else{
-
         $("#myModal").modal('show');
     }
 });
 
+/*
+* 跳转到帖子详情页
+* */
+$(".note-tile").click(function () {
+    const postId=$(this).children().val();
+    window.location.href="bbs/postDetail?postId="+postId;
+});
+/*绑定由jquery动态生成的元素*/
+$(document).on('click','.note-title',function () {
+   const postId=$(this).children().val();
+   window.location.href="bbs/postDetail?postId="+postId;
+});
+
+$(document).on('click','.top-post-title',function () {
+    const postId=$(this).prev().val();
+    window.location.href="bbs/postDetail?postId="+postId;
+});

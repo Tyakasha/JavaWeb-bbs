@@ -217,7 +217,7 @@
                         才显示详细信息，未登录查看或被其他用户查看
                         都只显示用户名被点赞数已经注册时间
                 --%>
-                <c:if test="${userAccInfoDTO!=null&&userInfoPageDTO.userName=userAccInfoDTO.userName}">
+                <c:if test="${userAccInfoDTO!=null&&(userInfoPageDTO.userName==userAccInfoDTO.userName)}">
                     <div class="point-info">账户积分：${userInfoPageDTO.points}</div>
                 </c:if>
             </div>
@@ -233,11 +233,11 @@
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <%--用户自己才有权利编辑自己的信息--%>
-                    <c:if test="${userAccInfoDTO!=null&&userInfoPageDTO.userName=userAccInfoDTO.userName}">
+                    <c:if test="${userAccInfoDTO!=null&&(userInfoPageDTO.userName==userAccInfoDTO.userName)}">
                         <a  href="#" class="text-decoration-none"  style="font-size: 12px;" id="edit-userName">编辑</a>
                     </c:if>
                 </div>
-                <c:if test="${userAccInfoDTO!=null&&userInfoPageDTO.userName=userAccInfoDTO.userName}">
+                <c:if test="${userAccInfoDTO!=null&&(userInfoPageDTO.userName==userAccInfoDTO.userName)}">
                     <div class="opts-content">
                         账户类型&nbsp;&nbsp;&nbsp;${userInfoPageDTO.accType}
                     </div>
@@ -288,7 +288,7 @@
                     <div class="round-dots-content" style="background: #28CA42"></div>
                 </div>
                 <div class="public-content" >
-                    被点赞数 ${userInfoPageDTO.thumbNum}
+                    被点赞数 ${userInfoPageDTO.beenThumbNum}
                 </div>
                 <div class="public-content-other">
                     注册于 ${userInfoPageDTO.registerDate}
@@ -301,11 +301,11 @@
             <div class="opts-content-left" style="margin-top: 30px">
                 <button type="button" value="myPosts" class="btn btn-light" id="myPost-btn" name="left-side-btn" style="width: 100%;margin-top: 10px;font-size: 14px;color:#575757;border: 0;text-align: left">
                     <%--登录录了且两用户名相等说明看的是自己的信息--%>
-                    <c:if test="${userAccInfoDTO!=null&&userAccInfoDTO.userName=userInfoPageDTO.userName}">
+                    <c:if test="${userAccInfoDTO!=null&&(userAccInfoDTO.userName==userInfoPageDTO.userName)}">
                         我发布的
                     </c:if>
                     <%--未登录时或两用户名不相等时说名看的是别人的信息--%>
-                    <c:if test="${userAccInfoDTO==null||userAccInfoDTO.userName!=userInfoPageDTO.userName}">
+                    <c:if test="${userAccInfoDTO==null||(userAccInfoDTO.userName!=userInfoPageDTO.userName)}">
                         他发布的
                     </c:if>
                 </button>
@@ -313,11 +313,13 @@
             <div class="opts-content-left">
                 <button type="button" value="myAnswerPosts" class="btn btn-light" name="left-side-btn" style="width: 100%;margin-top: 10px;font-size: 14px;color:#575757;border: 0;text-align: left">
                     <%--登录录了且两用户名相等说明看的是自己的信息--%>
-                    <c:if test="${userAccInfoDTO!=null&&userAccInfoDTO.userName=userInfoPageDTO.userName}">
-                        我回答的
+                    <c:if test="${userAccInfoDTO!=null}">
+                        <c:if test="${userAccInfoDTO.userName==userInfoPageDTO.userName}">
+                            我回答的
+                        </c:if>
                     </c:if>
                     <%--未登录时或两用户名不相等时说名看的是别人的信息--%>
-                    <c:if test="${userAccInfoDTO==null||userAccInfoDTO.userName!=userInfoPageDTO.userName}">
+                    <c:if test="${userAccInfoDTO==null||(userAccInfoDTO.userName!=userInfoPageDTO.userName)}">
                         他回答的
                     </c:if>
                 </button>
@@ -325,11 +327,11 @@
             <div class="opts-content-left">
                 <button type="button" value="myQuestionPosts" class="btn btn-light" name="left-side-btn" style="width: 100%;margin-top: 10px;font-size: 14px;color:#575757;border: 0;text-align: left">
                     <%--登录录了且两用户名相等说明看的是自己的信息--%>
-                    <c:if test="${userAccInfoDTO!=null&&userAccInfoDTO.userName=userInfoPageDTO.userName}">
+                    <c:if test="${userAccInfoDTO!=null&&(userAccInfoDTO.userName==userInfoPageDTO.userName)}">
                         我提问的
                     </c:if>
                     <%--未登录时或两用户名不相等时说名看的是别人的信息--%>
-                    <c:if test="${userAccInfoDTO==null||userAccInfoDTO.userName!=userInfoPageDTO.userName}">
+                    <c:if test="${userAccInfoDTO==null||(userAccInfoDTO.userName!=userInfoPageDTO.userName)}">
                         他提问的
                     </c:if>
                 </button>
@@ -337,11 +339,11 @@
             <div class="opts-content-left">
                 <button type="button" value="beenThumbedPosts" class="btn btn-light" name="left-side-btn" style="width: 100%;margin-top: 10px;font-size: 14px;color:#575757;border: 0;text-align: left">
                     <%--登录录了且两用户名相等说明看的是自己的信息--%>
-                    <c:if test="${userAccInfoDTO!=null&&userAccInfoDTO.userName=userInfoPageDTO.userName}">
+                    <c:if test="${userAccInfoDTO!=null&&(userAccInfoDTO.userName==userInfoPageDTO.userName)}">
                         我的被赞帖
                     </c:if>
                     <%--未登录时或两用户名不相等时说名看的是别人的信息--%>
-                    <c:if test="${userAccInfoDTO==null||userAccInfoDTO.userName!=userInfoPageDTO.userName}">
+                    <c:if test="${userAccInfoDTO==null||(userAccInfoDTO.userName!=userInfoPageDTO.userName)}">
                         他的被赞帖
                     </c:if>
                 </button>
@@ -354,7 +356,7 @@
                     <c:forEach items="${myPostsDTO}" var="myPost">
                         <div class='lists-group'>
                             <div class='top-line' style='width: 100%;height: 1.5px;background: #999999;'></div>
-                            <input value='15' hidden>
+                            <input value='${myPost.postsId}' hidden>
                             <div class='content-lists'>
                                 <div style='background: #FCF8E3' class='thumb-num'>获赞 ${myPost.thumbNum}</div>
                                 <div class='posts-info'>${myPost.title}</div>

@@ -3,9 +3,12 @@
 * 返回首页
 * */
 $("#returnHome").click(function () {
-    var url=window.location.pathname;
-    var end = url.lastIndexOf("/");
-    url = url.substring(0,end);
+    let url=window.location.pathname;
+    /*截取两次*/
+    const firstEnd = url.lastIndexOf("/");
+    url = url.substring(0,firstEnd);
+    const secondEnd=url.lastIndexOf("/");
+    url=url.substring(0,secondEnd);
     window.location.href=url;
 });
 
@@ -32,23 +35,25 @@ $("button[name='authorize']").click(function () {
             * */
             $.ajax({
                 method:"post",
-                url:"bbs/admin/authorize",
+                url:"admin/authorize",
                 data:{
                     loginAcc:loginAcc
                 },
                 dataType:"json",
                 success:function (callback) {
                     if (callback.successFlag){
-                        swal("授权成功","用户"+userName+"已成为管理员","","success");
+                        swal("授权成功","用户"+userName+"已成为管理员","success");
                     }else{
-                        swal("授权失败","T-T好像出bug了呢...","","error");
+                        swal("授权失败","T-T好像出bug了呢...","error");
                     }
                 },
                 error:function () {
                     swal("服务异常","遇到了未知错误呢....o(╥﹏╥)....哇~难受","error");
                 }
             });
-
+            setTimeout(function () {
+                window.location.reload();
+            },300);
         }
     });
 });

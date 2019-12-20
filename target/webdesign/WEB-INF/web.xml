@@ -15,7 +15,7 @@
   </welcome-file-list>
 <!--  <servlet>
     <servlet-name>bbs/postPage</servlet-name>
-    &lt;!&ndash;<servlet-class>ncu.ie.webdesign.servlet.postservlet.PostServlet</servlet-class>&ndash;&gt;
+    &lt;!&ndash;<servlet-class>ncu.ie.webdesign.servlet.postservlet.PostPageServletvlet</servlet-class>&ndash;&gt;
     &lt;!&ndash;servlet-class和jsp-file只能二选一，不能都设置&ndash;&gt;
     <jsp-file>/test.jsp</jsp-file>
   </servlet>

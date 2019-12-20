@@ -1,4 +1,7 @@
-package ncu.ie.webdesign.servlet.userservlet;
+package ncu.ie.webdesign.servlet.adminservlet;
+
+import ncu.ie.webdesign.service.UserService;
+import ncu.ie.webdesign.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,13 +19,8 @@ public class UserManagePageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*
-        * 获取所有的注册用户信息
-        * 这里需要新建一个userManagePageDTO
-        * 包含 rowNum，userName，loginAcc，registerDate
-        *
-        * */
-        req.setAttribute("userManagePageDTO", null);
+        UserService userService=new UserServiceImpl();
+        req.setAttribute("userManagePageDTO", userService.getAllUserManageDTO());
         req.getRequestDispatcher("/usermanage.jsp").forward(req,resp);
     }
 }

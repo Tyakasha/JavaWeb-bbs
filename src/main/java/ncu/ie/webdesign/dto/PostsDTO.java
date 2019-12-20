@@ -6,31 +6,71 @@ package ncu.ie.webdesign.dto;
  **/
 public class PostsDTO {
 
-    private Integer postId;
+    /*
+    * 帖子ID
+    * */
+    private Integer postsId;
+
+    /**
+     * 帖子标题
+     */
     private String title;
+
+    /**
+     * 帖子内容
+     */
     private String content;
+
+    /**
+     * 帖子点赞数
+     */
     private Integer thumbNum;
+
+    /**
+     * 帖子发布用户用户名
+     */
     private String postUser;
+
+    /**
+     * 帖子发布日期
+     */
     private String postDate;
 
-    public PostsDTO(Integer postId, String title, String content, Integer thumbNum, String postUser, String postDate) {
-        this.postId = postId;
+    /**
+     * 帖子置顶标识
+     */
+    private Integer topFlag;
+
+    /**
+     * 帖子加精标识
+     */
+    private Integer boutiqueFlag;
+
+    /**
+     * 用户点赞标识
+     */
+    private Integer userThumbFlag;
+
+
+    public PostsDTO() {
+    }
+
+    public PostsDTO(Integer postsId, String title, String content, Integer thumbNum, String postUser, String postDate, Integer topFlag) {
+        this.postsId = postsId;
         this.title = title;
         this.content = content;
         this.thumbNum = thumbNum;
         this.postUser = postUser;
         this.postDate = postDate;
+        this.topFlag = topFlag;
     }
 
-    public PostsDTO() {
+    public Integer getPostsId() {
+        return postsId;
     }
 
-    public Integer getPostId() {
-        return postId;
-    }
-
-    public void setPostId(Integer postId) {
-        this.postId = postId;
+    public void setPostsId(Integer postsId) {
+        this.postsId = postsId;
     }
 
     public String getTitle() {
@@ -71,5 +111,44 @@ public class PostsDTO {
 
     public void setPostDate(String postDate) {
         this.postDate = postDate;
+    }
+
+    public Integer getTopFlag() {
+        return topFlag;
+    }
+
+    public void setTopFlag(Integer topFlag) {
+        this.topFlag = topFlag;
+    }
+
+    public Integer getBoutiqueFlag() {
+        return boutiqueFlag;
+    }
+
+    public void setBoutiqueFlag(Integer boutiqueFlag) {
+        this.boutiqueFlag = boutiqueFlag;
+    }
+
+    public Integer getUserThumbFlag() {
+        return userThumbFlag;
+    }
+
+    public void setUserThumbFlag(Integer userThumbFlag) {
+        this.userThumbFlag = userThumbFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "PostsDTO{" +
+                "postId=" + postsId +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", thumbNum=" + thumbNum +
+                ", postUser='" + postUser + '\'' +
+                ", postDate='" + postDate + '\'' +
+                ", topFlag=" + topFlag +
+                ", boutiqueFlag=" + boutiqueFlag +
+                ", userThumbFlag=" + userThumbFlag +
+                '}';
     }
 }

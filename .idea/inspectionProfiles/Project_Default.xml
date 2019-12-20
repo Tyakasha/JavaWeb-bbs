@@ -3,8 +3,9 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <Languages>
-        <language minSize="55" name="Java" />
-        <language minSize="65" name="JavaScript" />
+        <language minSize="12" name="Style Sheets" />
+        <language minSize="178" name="Java" />
+        <language minSize="236" name="JavaScript" />
       </Languages>
     </inspection_tool>
     <inspection_tool class="JavaDoc" enabled="true" level="WARNING" enabled_by_default="true">

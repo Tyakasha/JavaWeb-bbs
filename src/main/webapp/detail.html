@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <style>
+        body{
+            background: #e9ecef;
+            /*解决100%宽度但是不能铺满屏幕的问题*/
+            margin: 0;
+        }
+        .main-container{
+            width: 70%;
+            margin-left: 15%;
+            height: auto;
+            max-height: 4000px;
+            background: white;
+            border: 2px solid #DDDDDD;
+            border-radius: 8px;
+            margin-top: 60px;
+        }
+        .comment-container{
+            display: flex;
+            width: 70%;
+            margin-left: 15%;
+            height: auto;
+            max-height: 1000px;
+            background: white;
+            border-radius: 8px;
+        }
+        .user-info{
+            display: flex;
+            margin-left: 3%;
+            width: 400px;
+            height: 40px;
+            background: #009a61;
+        }
+        .avatar-img{
+            display: flex;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            background: #e9ecef;
+        }
+        .user-name{
+            display: flex;
+            width: 200px;
+            margin-left: 5px;
+            height: 100%;
+            line-height: 40px;
+            color: #00965e;
+            font-weight: bolder;
+            font-size: 16px;
+            background: #F8BB86;
+        }
+        .title-info{
+            width: 100%;
+            height: 50px;
+            margin-top: 10px;
+            margin-left: 3%;
+            margin-bottom: 10px;
+            line-height: 50px;
+            color: #212529;
+            font-weight: 600;
+            font-size: 32px;
+        }
+        .post-content{
+            width: 94%;
+            margin-left: 3%;
+            background: #F8D486;
+            height: auto;
+            max-height: 3800px;
+        }
+        .date-info{
+            width: 300px;
+            height: 30px;
+            margin-left: 4%;
+            margin-bottom: 20px;
+            color: #6c757d;
+            font-size: 15px;
+            line-height: 30px;
+        }
+        .footer-content{
+            background: #333333;
+            height: 150px;
+            width:100%;
+            margin-top: 100px;
+            display: block;
+            bottom: 0;
+            text-align: center;
+            border: 5px solid #999999;
+            border-bottom: transparent;
+            border-left: transparent;
+            border-right: transparent;
+        }
+        .opts-content{
+            width: 50%;
+            height: 60px;
+            margin-left: 25%;
+            background: #0f6674;
+            margin-bottom: 100px;
+        }
+        .comment-num{
+            width: 100px;
+            height: 50px;
+            display: flex;
+            margin-top: 100px;
+            margin-left: 15%;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 50px;
+            text-align: left;
+        }
+        .comment-card-body{
+            display: block;
+            width: 96%;
+            height: auto;
+            margin-left: 2%;
+            margin-top: 20px;
+        }
+        .comment-edit{
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            background: #ea7d7d;
+        }
+        .avatar{
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            background: #999999;
+        }
+        .comment-edit-input{
+            display: inline-flex;
+            width: 91%;
+            height: 38px;
+            background: #5dc2f1;
+            margin-left: 10px;
+        }
+        .commit-btn{
+            width: 17%;
+            height: 50px;
+            display: block;
+            margin-left: 80%;
+            background: #999999;
+        }
+        .comment-content{
+            display: block;
+            width: 100%;
+            height: 150px;
+            margin-top: 20px;
+        }
+        .comment-text-container{
+            display: inline-flex;
+            width: 91%;
+            height: 70%;
+            margin-left: 5px;
+        }
+        .commentator-name{
+            display: inline-flex;
+            height: 50px;
+            max-width: 20%;
+        }
+        .content-text{
+            width: 80%;
+            height: 100%;
+            word-break: break-word;
+        }
+        .reply-date{
+            display: block;
+            width: 300px;
+            height: 30px;
+            margin-left: 55px;
+            color: #999999;
+            font-size: 14px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 100%;height: 1500px;max-height: 5000px;display: block">
+    <header style="background: #009933;height: 3px"></header>
+    <header style="background: #fafafa;height: 67px;display: flex"></header>
+    <header style="background: #CCCCCC;height: 1px"></header>
+    <div class="main-container">
+        <div class="user-info">
+            <div class="avatar-img"></div>
+            <div class="user-name">极客Style</div>
+        </div>
+        <div class="title-info">值得关注的Vue.js开源项目</div>
+        <div class="post-content">
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+            <p>丰富的色彩阵列和出色的 UX 使该项目成为我的最爱之一。渐变效果仍然是网页设计中日益增长的趋势。你可以选择所需的颜色，
+                并查看所有可能的渐变。该收藏非常庞大，因为它是社区贡献的。你可以轻松选择渐变效果并复制其 CSS 代码。</p>
+        </div>
+        <div class="date-info">发布于 2019-12-19 23:23:50</div>
+        <div class="opts-content"></div>
+    </div>
+    <div class="comment-num">
+        1 条评论
+    </div>
+    <div class="comment-container">
+        <div class="comment-card-body">
+            <div class="comment-edit">
+                <div class="avatar"></div>
+                <div class="comment-edit-input">
+                </div>
+                <div class="commit-btn">
+                </div>
+            </div>
+            <div class="comment-content">
+                <div class="avatar" style="margin-top: 5px"></div>
+                <div class="comment-text-container">
+                    <div class="commentator-name" style="line-height: 55px">
+                        <strong style="color: #009a61">安安然水水fsdfs：</strong>
+                    </div>
+                    <div class="content-text">
+                        <p>贼你妈牛批！！！！贼你妈牛批！！！！贼你妈牛批！！！！贼你妈牛dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+                    </div>
+                </div>
+                <div class="reply-date">
+                    评论于 2019-12-23 23:23
+                </div>
+            </div>
+            <div class="comment-content">
+                <div class="avatar" style="margin-top: 5px"></div>
+                <div class="comment-text-container">
+                    <div class="commentator-name" style="line-height: 55px">
+                        <strong style="color: #009a61">安安然水水fsdfs：</strong>
+                    </div>
+                    <div class="content-text">
+                        <p>贼你妈牛批！！！！贼你妈牛批！！！！贼你妈牛批！！！！贼你妈牛dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+                    </div>
+                </div>
+                <div class="reply-date">
+                    评论于 2019-12-23 23:23
+                </div>
+            </div>
+            <div class="comment-content">
+                <div class="avatar" style="margin-top: 5px"></div>
+                <div class="comment-text-container">
+                    <div class="commentator-name" style="line-height: 55px">
+                        <strong style="color: #009a61">安安然水水fsdfs：</strong>
+                    </div>
+                    <div class="content-text">
+                        <p>贼你妈牛批！！！！贼你妈牛批！！！！贼你妈牛批！！！！贼你妈牛dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+                    </div>
+                </div>
+                <div class="reply-date">
+                    评论于 2019-12-23 23:23
+                </div>
+            </div>
+            <div class="comment-content">
+                <div class="avatar" style="margin-top: 5px"></div>
+                <div class="comment-text-container">
+                    <div class="commentator-name" style="line-height: 55px">
+                        <strong style="color: #009a61">安安然水水fsdfs：</strong>
+                    </div>
+                    <div class="content-text">
+                        <p>贼你妈牛批！！！！贼你妈牛批！！！！贼你妈牛批！！！！贼你妈牛dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+                    </div>
+                </div>
+                <div class="reply-date">
+                    评论于 2019-12-23 23:23
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer-content">
+        <label style="font-size: 14px;line-height: 120px;color: #999999">CopyRight   @南昌大学信息工程学院-Wan HaoDong
+            &nbsp;&nbsp;&nbsp;&nbsp;2017级信息学院WEB程序设计期末作业项目</label>
+    </footer>
+</div>
+</body>
+</html>

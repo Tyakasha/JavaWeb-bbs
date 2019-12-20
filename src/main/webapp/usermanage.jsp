@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/usermanage.css">
 </head>
 
-<c:set var="userManageInfoDTO" scope="request" value="${userManageInfoDTO}"  />
+<c:set var="userManageInfoDTO" scope="request" value="${userManagePageDTO}"  />
 <body>
 <div style="display: block;width: 100%;min-height: 1800px;max-height: 5000px;height: 1800px">
     <header style="background: #009933;height: 3px"></header>
@@ -82,15 +82,23 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach>
+            <c:forEach items="${userManageInfoDTO}" var="userInfo">
                 <tr>
-                    <th scope="row">${userManageInfoDTO.rowNum}</th>
-                    <td>${userManageInfoDTO.userName}</td>
-                    <td>${userManageInfoDTO.loginAcc}</td>
-                    <td>${userManageInfoDTO.registerDate}</td>
-                    <td>
-                        <button type="button" class="btn btn-warning" style="width: 120px" name="authorize">管理员授权</button>
-                    </td>
+                    <th scope="row">${userInfo.rowNum}</th>
+                    <td>${userInfo.userName}</td>
+                    <td>${userInfo.loginAcc}</td>
+                    <td>${userInfo.registerDate}</td>
+                    <%--已经是管理员不需要再授权--%>
+                    <c:if test="${userInfo.accType==1}">
+                        <td>
+                            <button type="button" class="btn btn-warning" style="width: 120px" name="authorize" disabled>管理员授权</button>
+                        </td>
+                    </c:if>
+                    <c:if test="${userInfo.accType==0}">
+                        <td>
+                            <button type="button" class="btn btn-warning" style="width: 120px" name="authorize">管理员授权</button>
+                        </td>
+                    </c:if>
                 </tr>
             </c:forEach>
             </tbody>

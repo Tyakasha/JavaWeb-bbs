@@ -38,16 +38,6 @@
 <%--页面渲染时，设置并接收后端传来的数据--%>
 <%--用户信息及账号信息数据传输对象--%>
 <c:set var="userAccInfoDTO" scope="session" value="${userAccInfoDTO}"/>
-<%--所有的帖子数据传输对象--%>
-<c:set var="allPostsDTO" scope="request" value="${allPostsDTO}" />
-<%--
-    置顶帖数据传输对象
-    这里理论是可以用所有帖子数据来渲染置顶帖的
-    但当数据量很大时，那样会影响页面渲染或加载速度（因为有判断）
-    所有在后端进行该项数据的获取传过来直接渲染
-    --%>
-<c:set var="topPostsDTO" scope="request" value="${topPostsDTO}"/>
-
 <body>
 <div style="display: block;width: 100%;min-height: 1800px;max-height: 5000px;height: 1800px">
     <header style="background: #009933;height: 3px"></header>
@@ -58,7 +48,7 @@
             </div>
             <div class="opts" >
                 <div class="link-home">
-                    <a href="bbs" class="text-decoration-none" style="height: 100%;line-height: 34px;color: #009a61;font-weight: bolder">首页</a>
+                    <a href="javascript:window.location.reload()" class="text-decoration-none" style="height: 100%;line-height: 34px;color: #009a61;font-weight: bolder">首页</a>
                 </div>
                 <c:if test="${userAccInfoDTO!=null}">
                     <div class="link-create"  id="createNote">
@@ -300,6 +290,7 @@
                 </div>
             </div>
             <!-- 页码选择,帖子内容不为空时显示-->
+            <%--进度旋转条--%>
             <c:if test="${allPostsDTO!=null}">
                 <div class="page-select" id="page-select">
                     <div style="width: 80px;font-size: 14px;display: inline-block">分页选择：</div>
@@ -328,54 +319,50 @@
             </c:if>
             <!--帖子内容-->
             <div class="card-body" id="card-body">
-                <c:if test="${allPostsDTO==null}">
-                    <div  style='text-align: center;width: 100%;margin-top: 50px'>论坛还没有任何用户发表帖子呢，快去抢沙发吧！</div>
-                </c:if>
-                <c:if test="${allPostsDTO!=null}">
-                    <c:forEach items="${allPostsDTO}" var="post">
-                        <div class="note-card">
-                            <div class="note-tile"><h4 style="color: #212121">${post.title}</h4></div>
-                            <div class="note-content">${post.content}</div>
-                            <div class="note-opt">
-                                <!--该隐藏的输入框用于存放帖子的id-->
-                                <input value="${post.postId}" hidden>
-                                <!--点赞按钮，只有注册的用户才可以为帖子点赞-->
-                                <button type="button" class="btn btn-light"  name="thumb" style="width: 36px;height:36px;font-size: 14px;font-weight:bolder;border: 0;text-align: center;
+
+                <%--<div class="note-card">
+                    <div class="note-tile">
+                        <!--该隐藏的输入框用于存放帖子的id-->
+                        <input value="${post.postsId}" hidden>
+                        <h4 style="color: #212121">${post.title}</h4>
+                    </div>
+                    <div class="note-content">${post.content}</div>
+                    <div class="note-opt">
+                        <input value="${post.postsId}" hidden>
+                        <input value="${post.thumbNum}" hidden>
+                        <!--点赞按钮，只有注册的用户才可以为帖子点赞-->
+                        <button type="button" class="btn btn-light"  name="thumb" style="width: 36px;height:36px;font-size: 14px;font-weight:bolder;border: 0;text-align: center;
                         border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%; color: #009a61">赞</button>
-                                ●&nbsp;<span style="color: #009a61;font-weight: bolder;font-size: 14px">${post.thumbNum}</span>
-                                <!--此处显示发帖用户的用户名-->
-                                <button type="button" class="btn btn-light"  style="width: 20%;font-size: 14px;color:#999999;border: 0;text-align: center;background: #FFFFFF;margin-left: 10px">${post.postUser}</button>
-                                <!--此处显示发帖时间-->
-                                <button type="button" class="btn btn-light"  style="width: 30%;font-size: 14px;color:#999999;border: 0;text-align: left;background: #FFFFFF;margin-left: 10px">${post.postDate}</button>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </c:if>
+                        ●&nbsp;<span style="color: #009a61;font-weight: bolder;font-size: 14px">${post.thumbNum}</span>
+                        <!--此处显示发帖用户的用户名-->
+                        <button type="button" name="postUser" class="btn btn-light"  style="width: 20%;font-size: 14px;color:#999999;border: 0;text-align: center;background: #FFFFFF;margin-left: 10px">${post.postUser}</button>
+                        <!--此处显示发帖时间-->
+                        <button type="button" class="btn btn-light"  style="width: 30%;font-size: 14px;color:#999999;border: 0;text-align: left;background: #FFFFFF;margin-left: 10px">${post.postDate}</button>
+                    </div>
+                </div>--%>
+            </div>
+            <div class="spinner-border text-secondary" role="status"
+                 style="display: inline-block;position:absolute;margin-left:18%;margin-top:7%;width: 5rem;height: 5rem" id="loading-data" >
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <div class="right-side">
+        <div class="right-side" id="right-side">
             <div class="adv-img">
                 <a href="https://www.bt.cn"><img src="static/images/bt.png"  style="width: 100%;height: 136px"></a>
             </div>
             <div style="width: 100%;height: 20px;font-size: 12px;text-align: center">图片广告位，现在折价中哦......</div>
             <div style="width: 100%;height: 30px;font-size: 17px;color: #009a61;font-weight: bolder;margin-top: 50px;text-align: center">----------置顶帖----------</div>
             <!--被置顶的帖-->
-            <c:if test="${topPostsDTO!=null}">
-                <c:forEach items="${topPostsDTO}" var="topPost">
-                    <div class="boutique-recommend">
-                        <div style="width: 100%;height: 32px;display: block">
-                            <span style="font-size: 17px;font-weight: bold">${topPost.title}</span>
-                        </div>
-                        <div style="width: 100%;height: 1.5px;background: #999999"></div>
-                        <div class="top-post-content">
-                            ${topPost.content}
-                        </div>
-                    </div>
-                </c:forEach>
-            </c:if>
-            <c:if test="${topPostsDTO==null}">
-                <div style="width: 100%;text-align: center;margin-top: 5%">暂无置顶帖哦</div>
-            </c:if>
+            <%--<div class='boutique-recommend'>
+                <div style='width: 100%;height: 32px;display: block'>
+                    <span style='font-size: 17px;font-weight: bold'>${topPost.title}</span>
+                </div>
+                <div style='width: 100%;height: 1.5px;background: #999999'></div>
+                <div class='top-post-content'>
+                    ${topPost.content}
+                </div>
+            </div>--%>
+            <%--<div style='width: 100%;text-align: center;margin-top: 5%'>暂无置顶帖哦</div>--%>
         </div>
     </div>
     <footer class="footer-content">

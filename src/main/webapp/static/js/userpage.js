@@ -109,14 +109,14 @@ $("#save-edit-userName").click(function () {
     }else{
         $.ajax({
             method:"post",
-            url:"bbs/user/resetUserName",
+            url:"user/resetUserName",
             data:{
                 newUserName:newUserName
             },
             dataType:"json",
             success:function (callback) {
                 if (callback.successFlag){
-                    swal("已保存修改","","success");
+                    swal("已保存修改","您需要重新登录才可以重置状态","success");
                     /*
                     * 显示信息，直接将修改信息绑定到label，不刷新页面
                     * 先隐藏编辑框再显示
@@ -125,7 +125,7 @@ $("#save-edit-userName").click(function () {
                     $("#info-userName").text(newUserName).show();
                     $("#edit-userName").show();
                 }else{
-                    swal("修改失败","","error");
+                    swal("修改失败","出bug了T-T.....","error");
                     /*
                     * 显示信息，显示原来信息因为修改失败了
                     * 先隐藏编辑框再显示
@@ -145,10 +145,10 @@ $("#save-edit-userName").click(function () {
 * 保存工作性质的修改
 * */
 $("#save-edit-jobInfo").click(function () {
-    var newJobCategory=$("#sel-job").val();
+    const newJobCategory = $("#sel-job").val();
     $.ajax({
         method:"post",
-        url:"bbs/user/resetJobCategory",
+        url:"user/resetJobCategory",
         data:{
             newJobCategory:newJobCategory
         },
@@ -183,7 +183,7 @@ $("#save-edit-jobInfo").click(function () {
 * 保存修改用户联系手机
 * */
 $("#save-edit-phoneNum").click(function () {
-    var newPhoneNum=$("#info-phoneNum").val();
+    const newPhoneNum = $("#phoneNum").val();
     /*手机号码正则表达式*/
     const phoneNumReg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
     if (newPhoneNum===''){
@@ -193,7 +193,7 @@ $("#save-edit-phoneNum").click(function () {
     }else {
         $.ajax({
             method:"post",
-            url:"bbs/user/resetPhoneNum",
+            url:"user/resetPhoneNum",
             data:{
                 newPhoneNum:newPhoneNum
             },
@@ -237,14 +237,14 @@ $("button[name='left-side-btn']").click(function () {
     * 获取btn的val，事先将路径的最后一部分绑定到btn的val中
     * 获取该值用作url的字符拼接
     * */
-    var tagVal=$(this).val();
-    var tagText=$(this).text();
+    const tagVal = $(this).val();
+    const tagText = $(this).text();
     /*空数据提示信息*/
-    var emptyTip;
+    let emptyTip;
     switch (tagVal) {
         case "myPosts": emptyTip="您当前还没发布过任何帖子哦~";break;
-        case "myAnswerPosts": emptyTip="您当前还未发布过任何提问帖哦~";break;
-        case "myQuestionPosts": emptyTip="您当前没回答过任何帖子哦~";break;
+        case "myQuestionPosts": emptyTip="您当前还未发布过任何提问帖哦~";break;
+        case "myAnswerPosts": emptyTip="您当前没回答过任何帖子哦~";break;
         case "beenThumbedPosts": emptyTip="您当前没有任何被点赞的帖子哦~";break;
         default:
             emptyTip="";
@@ -256,31 +256,32 @@ $("button[name='left-side-btn']").click(function () {
     infoContent.empty();
     $.ajax({
         method:"post",
-        url:"bbs/user/"+tagVal,
+        url:"user/"+tagVal,
         data:{},
         dataType:"json",
         success:function (callback) {
             /*
             * 数据绑定
             * */
-            if (callback.callbackData.length===0){
+            if (callback.callbackData.length===0||callback.callbackData===null){
                 /*空数据时显示特定信息*/
                 infoContent.append("<div style='width: 80%;height: 100px;line-height: 100px;font-size: 15px;font-weight: bolder;text-align: center'>"+emptyTip+"</div>")
             }else {
+                let data=callback.callbackData;
+                for (let i = 0; i <data.length ; i++) {
+                    infoContent.append("<div class='lists-group'>\n" +
+                        "                            <div class='top-line' style='width: 100%;height: 1.5px;background: #999999;'></div>\n" +
+                        "                            <input value='"+data[i].postsId+"' hidden>\n" +
+                        "                            <div class='content-lists'>\n" +
+                        "                                <div style='background: #FCF8E3' class='thumb-num'>获赞 "+data[i].thumbNum+"</div>\n" +
+                        "                                <div class='posts-info'>"+data[i].title+"</div>\n" +
+                        "                            </div>\n" +
+                        "                        </div>");
+                }
             }
         },
         error:function () {
             toastr.error("服务异常，数据获取失败T-T.....");
-            for (let i = 0; i <10 ; i++) {
-                infoContent.append("<div class='lists-group'>\n" +
-                    "                            <div class='top-line' style='width: 100%;height: 1.5px;background: #999999;'></div>\n" +
-                    "                            <input value='15' hidden>\n" +
-                    "                            <div class='content-lists'>\n" +
-                    "                                <div style='background: #FCF8E3' class='thumb-num'>获赞 6</div>\n" +
-                    "                                <div class='posts-info'>Nginx配置详解</div>\n" +
-                    "                            </div>\n" +
-                    "                        </div>");
-            }
         }
     });
 });
@@ -294,7 +295,7 @@ $("button[name='left-side-btn']").click(function () {
 * */
 $(document).on('click',".content-lists",function () {
    const postId=$(this).prev().val();
-   window.location.href="bbs/postDetail?postId="+postId;
+   window.location.href="postDetail?postId="+postId;
 });
 /*
 * 返回首页
@@ -302,8 +303,11 @@ $(document).on('click',".content-lists",function () {
 * 因为url加了一级父级路径bbs
 * */
 $("#returnHome").click(function () {
-    var url=window.location.pathname;
-    var end = url.lastIndexOf("/");
-    url = url.substring(0,end);
+    let url=window.location.pathname;
+    /*截取两次*/
+    const firstEnd = url.lastIndexOf("/");
+    url = url.substring(0,firstEnd);
+    const secondEnd=url.lastIndexOf("/");
+    url=url.substring(0,secondEnd);
     window.location.href=url;
 });
