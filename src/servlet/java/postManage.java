@@ -6,7 +6,7 @@ import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-//   /bbs
+//    /bbs
 public class postManage extends HttpServlet {
 
 // Get
